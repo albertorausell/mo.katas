@@ -18,5 +18,9 @@
   "homepage": "https://github.com/mercadona/mo.katas#readme",
   "devDependencies": {
     "jest": "^24.5.0"
+  },
+  "dependencies": {
+    "jasmine-node": "^3.0.0",
+    "node": "^17.7.1"
   }
 }
