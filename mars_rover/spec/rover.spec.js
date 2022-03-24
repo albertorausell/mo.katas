@@ -1,5 +1,5 @@
 const Rover = require('../src/rover');
-
+const Mars = require('../src/variables');
 
 /*
 Mars rover moves through
@@ -28,6 +28,8 @@ describe('Rover', () => {
 
   describe('facing north', () => {
     it('moves forwards', () => {
+      Mars.dimensions = [3,3];
+      Mars.obstacles = [];
       let rover = new Rover(0, 0, 'N')
 
       rover.move(['f'])
@@ -39,6 +41,8 @@ describe('Rover', () => {
 
     //changed test for sphere planet
     it('moves backwards', () => {
+      Mars.dimensions = [3,3];
+      Mars.obstacles = [];
       let rover = new Rover(0, 0, 'N')
 
       rover.move(['b'])
@@ -50,6 +54,8 @@ describe('Rover', () => {
 
     //own tests
     it('turns rigth', () => {
+      Mars.dimensions = [3,3];
+      Mars.obstacles = [];
       let rover = new Rover(0, 0, 'N')
 
       rover.move(['r'])
@@ -60,6 +66,8 @@ describe('Rover', () => {
     })
 
     it('turns left', () => {
+      Mars.dimensions = [3,3];
+      Mars.obstacles = [];
       let rover = new Rover(0, 0, 'N')
 
       rover.move(['l'])
@@ -72,6 +80,8 @@ describe('Rover', () => {
 
   describe('facing south', () => {
     it('moves forwards', () => {
+      Mars.dimensions = [3,3];
+      Mars.obstacles = [];
       let rover = new Rover(0, 0, 'S')
 
       rover.move(['f'])
@@ -82,6 +92,8 @@ describe('Rover', () => {
     })
 
     it('moves backwards', () => {
+      Mars.dimensions = [3,3];
+      Mars.obstacles = [];
       let rover = new Rover(0, 0, 'S')
 
       rover.move(['b'])
@@ -92,6 +104,8 @@ describe('Rover', () => {
     })
 
     it('turns rigth', () => {
+      Mars.dimensions = [3,3];
+      Mars.obstacles = [];
       let rover = new Rover(0, 0, 'S')
 
       rover.move(['r'])
@@ -102,6 +116,8 @@ describe('Rover', () => {
     })
 
     it('turns left', () => {
+      Mars.dimensions = [3,3];
+      Mars.obstacles = [];
       let rover = new Rover(0, 0, 'S')
 
       rover.move(['l'])
@@ -114,6 +130,8 @@ describe('Rover', () => {
 
   describe('facing east', () => {
     it('moves forwards', () => {
+      Mars.dimensions = [3,3];
+      Mars.obstacles = [];
       let rover = new Rover(0, 0, 'E')
 
       rover.move(['f'])
@@ -124,6 +142,8 @@ describe('Rover', () => {
     })
 
     it('moves backwards', () => {
+      Mars.dimensions = [3,3];
+      Mars.obstacles = [];
       let rover = new Rover(0, 0, 'E')
 
       rover.move(['b'])
@@ -134,6 +154,8 @@ describe('Rover', () => {
     })
 
     it('turns rigth', () => {
+      Mars.dimensions = [3,3];
+      Mars.obstacles = [];
       let rover = new Rover(0, 0, 'E')
 
       rover.move(['r'])
@@ -144,6 +166,8 @@ describe('Rover', () => {
     })
 
     it('turns left', () => {
+      Mars.dimensions = [3,3];
+      Mars.obstacles = [];
       let rover = new Rover(0, 0, 'E')
 
       rover.move(['l'])
@@ -156,6 +180,8 @@ describe('Rover', () => {
   
   describe('facing west', () => {
     it('moves forwards', () => {
+      Mars.dimensions = [3,3];
+      Mars.obstacles = [];
       let rover = new Rover(0, 0, 'W')
 
       rover.move(['f'])
@@ -166,6 +192,8 @@ describe('Rover', () => {
     })
 
     it('moves backwards', () => {
+      Mars.dimensions = [3,3];
+      Mars.obstacles = [];
       let rover = new Rover(0, 0, 'W')
 
       rover.move(['b'])
@@ -176,6 +204,8 @@ describe('Rover', () => {
     })
 
     it('turns rigth', () => {
+      Mars.dimensions = [3,3];
+      Mars.obstacles = [];
       let rover = new Rover(0, 0, 'W')
 
       rover.move(['r'])
@@ -186,6 +216,8 @@ describe('Rover', () => {
     })
 
     it('turns left', () => {
+      Mars.dimensions = [3,3];
+      Mars.obstacles = [];
       let rover = new Rover(0, 0, 'W')
 
       rover.move(['l'])
@@ -195,4 +227,28 @@ describe('Rover', () => {
       expect(rover.orientation).toEqual('S')
     })
   });
+  describe('sequence of commands', () => {
+    it('4 commands', () => {
+      Mars.dimensions = [3,3];
+      Mars.obstacles = [];
+      let rover = new Rover(0, 0, 'N')
+
+      rover.move(['f','l','b','r'])
+
+      expect(rover.x).toEqual(1)
+      expect(rover.y).toEqual(1)
+      expect(rover.orientation).toEqual('N')
+    })
+  });
+  it('obstacles', () => {
+    Mars.dimensions = [3,3];
+    Mars.obstacles = [[1,0]];
+    let rover = new Rover(0, 0, 'N')
+
+    rover.move(['f','f','r','f','l','f'])
+
+    expect(rover.x).toEqual(0)
+    expect(rover.y).toEqual(0)
+    expect(rover.orientation).toEqual('N')
+  })
 })
