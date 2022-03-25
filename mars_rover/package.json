@@ -20,7 +20,10 @@
     "jest": "^24.5.0"
   },
   "dependencies": {
+    "express": "^4.17.3",
     "jasmine-node": "^3.0.0",
-    "node": "^17.7.1"
+    "node": "^17.7.1",
+    "swagger-ui-express": "^4.3.0",
+    "yamljs": "^0.3.0"
   }
 }

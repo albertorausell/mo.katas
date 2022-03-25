@@ -240,15 +240,28 @@ describe('Rover', () => {
       expect(rover.orientation).toEqual('N')
     })
   });
-  it('obstacles', () => {
-    Mars.dimensions = [3,3];
-    Mars.obstacles = [[1,0]];
-    let rover = new Rover(0, 0, 'N')
+  describe('obstacles', () => {
+    it('test_1', () => {
+      Mars.dimensions = [3,3];
+      Mars.obstacles = [[1,0]];
+      let rover = new Rover(0, 0, 'N')
 
-    rover.move(['f','f','r','f','l','f'])
+      rover.move(['f','f','r','f','l','f'])
 
-    expect(rover.x).toEqual(0)
-    expect(rover.y).toEqual(0)
-    expect(rover.orientation).toEqual('N')
-  })
+      expect(rover.x).toEqual(0)
+      expect(rover.y).toEqual(0)
+      expect(rover.orientation).toEqual('N')
+    })
+    it('test_2', () => {
+      Mars.dimensions = [4,4];
+      Mars.obstacles = [[2,2]];
+      let rover = new Rover(1, 1, 'S')
+
+      rover.move(['f','f','l','f','r','f','l','f','r','b'])
+
+      expect(rover.x).toEqual(1)
+      expect(rover.y).toEqual(1)
+      expect(rover.orientation).toEqual('S')
+    })
+  });
 })
