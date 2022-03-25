@@ -1,0 +1,89 @@
+openapi: 3.0.0
+info:
+  title: Rover API
+  description: Rover API
+  version: 1.0.0
+servers:
+  - url: http://localhost:3452
+    description: Rover API
+paths:
+  /rover:
+    get:
+      summary: Returns rover properties
+      description: Returns the properties of the rover
+      responses:
+        '200':
+          description: Successful operation!
+    post:
+      summary: Initializes a new environment.
+      description: Creates Mars environment and setup the Rover
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - ""
+              properties:
+                initPos:
+                  type: array
+                  items:
+                    type: integer
+                  example: [0,0]
+                initOrientation:
+                  type: string
+                  example: "N"
+                marsDimensions:
+                  type: array
+                  items:
+                    type: integer
+                  example: [3,3]
+                marsObstacles:
+                  type: array
+                  items:
+                    type: integer
+                  example: [[0,0]]
+      responses:
+        '200':
+          description: A JSON array of user names
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+  /rover/inspect-area:
+    get:
+      summary: Inspect area
+      description: Returns a graphical view o mars
+      responses:
+        '200':
+          description: Successful operation!
+  /rover/move:
+    post:
+      summary: Move rover.
+      description: Move the rover with the speciefied commands
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - commands
+              properties:
+                commands:
+                  type: array
+                  items:
+                    type: string
+                  example: ["f"]
+      responses:
+        '200':
+          description: A JSON array of user names
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string

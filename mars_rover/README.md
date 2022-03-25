@@ -1,4 +1,4 @@
-# Mars rover kata
+# Mars rover kata JS
 
 ## Your Task
 
@@ -11,3 +11,15 @@ The rover receives a character array of commands.
 - Implement commands that turn the rover left/right (l,r). <-- **StartHere**
 - Implement wrapping from one edge of the grid to another. (planets are spheres after all)
 - Implement obstacle detection before each move to a new square. If a given sequence of commands encounters an obstacle, the rover moves up to the last possible point, aborts the sequence and reports the obstacle.
+
+## Install dependencies
+
+```
+npm install jasmine-node -g
+```
+
+## Execute the test suite:
+
+```
+node_modules/jasmine-node/bin/jasmine-node spec/rover.spec.js
+```
