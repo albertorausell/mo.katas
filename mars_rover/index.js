@@ -13,9 +13,4 @@ app.use(express.json());
 app.use("/rover", roverRouter);
 
 app.listen(port ,
-() => console.log(`Rover is on ready on ${port} -  Ctrl + C to Stop `) )
-/*const Rover = require("./src/rover");
-const Mars = require("./src/variables");
-let rover = new Rover(0,0,'N');
-rover.inspectArea();
-Mars.obstacles = [[0,0]];*/
+() => console.log(`Rover is on ready on ${port} -  Ctrl + C to Stop\nApi documentation at: http://localhost:3452/api-docs/`))
